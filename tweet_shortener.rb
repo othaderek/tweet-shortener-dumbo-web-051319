@@ -16,15 +16,15 @@ def dictionary
 end
 
 def word_substituter(tweets)
-  words = tweets.split
-  dictionary_word = dictionary.keys
-  words.collect do |string|
-      if dictionary_word.include?(string.downcase)
-          string = dictionary[string]
+  words = tweets.split # This splits the tweet string into an array to be iterated over.
+  dictionary_word = dictionary.keys # This saves all of the dictionary keys in a variable
+  words.collect do |string| # we use collect to iterate here because we are returning the changes made to our array
+      if dictionary_word.include?(string.downcase) # checks the array where we stored the keys if it contains "string"
+          string = dictionary[string] # Saves dictionary of string into a string array
       else
-        string
+        string # Returns string
       end
-end.join(" ")
+end.join(" ") # Joins the string
 end
 
 def bulk_tweet_shortener(arr)
